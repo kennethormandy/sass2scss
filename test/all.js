@@ -67,3 +67,7 @@ test("convert sass property nesting", function() {
 test("convert very basic sasss property syntax", function() {
   testFixtureAgainstExpected("property-syntax");
 });
+
+test("ignore interpolation", function() {
+  testFixtureAgainstExpected("interpolation");
+});
