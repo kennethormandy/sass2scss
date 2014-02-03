@@ -35,3 +35,35 @@ test("ignore comments on block last line", function() {
 test("handle selectors not containing alphanumeric characters", function() {
   testFixtureAgainstExpected("no-char-selector");
 });
+
+test("ignore scss @content", function() {
+  testFixtureAgainstExpected("at-content-out");
+});
+
+test("ignore scss @extends", function() {
+  testFixtureAgainstExpected("at-extends");
+});
+
+test("ignore scss @mixin", function() {
+  testFixtureAgainstExpected("at-mixin");
+});
+
+test("ignore colors", function() {
+  testFixtureAgainstExpected("colors");
+});
+
+test("covert sass indented comments", function() {
+  testFixtureAgainstExpected("comments");
+});
+
+test("convert sass mixins with arguments", function() {
+  testFixtureAgainstExpected("mixin-with-arguments");
+});
+
+test("convert sass property nesting", function() {
+  testFixtureAgainstExpected("property-nesting");
+});
+
+test("convert very basic sasss property syntax", function() {
+  testFixtureAgainstExpected("property-syntax");
+});

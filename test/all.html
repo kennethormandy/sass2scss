@@ -71,5 +71,147 @@ input
   *
     color: orange</pre>
   </div>
+
+<div class="at-content-out">
+
+  <pre name="" class="expected" cols="30" rows="10">
+  @mixin apply-to-ie6-only{
+    * html{
+      @content;}}
+  @include apply-to-ie6-only{
+    #logo{
+      background-image: url(/logo.gif);}}</pre>
+
+  <pre name="" class="fixture" cols="30" rows="10">
+  =apply-to-ie6-only
+    * html
+      @content
+
+  +apply-to-ie6-only
+    #logo
+      background-image: url(/logo.gif)</pre>
+
+</div>
+
+<div class="at-extends">
+
+  <pre name="" class="expected" cols="30" rows="10">button{
+  padding: 5px 10px;}
+a.button{
+  @extends .button;}</pre>
+
+  <pre name="" class="fixture" cols="30" rows="10">button
+  padding: 5px 10px
+
+a.button
+  @extends .button</pre>
+
+</div>
+
+<div class="at-mixin">
+
+  <pre name="" class="expected" cols="30" rows="10">@mixin dark-text{
+  color: #ff0000;}
+@mixin large-text{
+  font-size: 10em;}
+@mixin blue-text{
+  color: #ff0000;}
+h1{
+  @include dark-text;
+  @include large-text;}</pre>
+
+  <pre name="" class="fixture" cols="30" rows="10">@mixin dark-text
+  color: #ff0000
+
+=large-text
+  font-size: 10em
+
+=blue-text
+  color: #ff0000
+
+h1
+  @include dark-text
+  +large-text</pre>
+
+</div>
+
+<div class="colors">
+
+  <pre name="" class="expected" cols="30" rows="10">#box{
+    background: rgba(white, .5);}</pre>
+
+  <pre name="" class="fixture" cols="30" rows="10">#box
+    background: rgba(white, .5)</pre>
+
+</div>
+
+<div class="comments">
+
+  <pre name="" class="expected" cols="30" rows="10">/* This comment will appear in the CSS output.
+This is nested beneath the comment,
+so it's part of it */
+body{
+  color: black;}
+a{
+  color: green;}
+  </pre>
+
+  <pre name="" class="fixture" cols="30" rows="10">/* This comment will appear in the CSS output.
+  This is nested beneath the comment,
+  so it's part of it
+body
+  color: black
+
+// This comment will not appear in the CSS output.
+  This is nested beneath the comment as well,
+  so it also won't appear
+a
+  color: green
+  </pre>
+
+</div>
+
+<div class="mixin-with-arguments">
+
+  <pre name="" class="expected" cols="30" rows="10">h1{
+  @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);}
+  </pre>
+
+  <pre name="" class="fixture" cols="30" rows="10">h1
+  +box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
+  </pre>
+
+</div>
+
+<div class="property-nesting">
+
+  <pre name="" class="expected" cols="30" rows="10">.funky{
+  font:{
+    family: fantasy;
+    size: 30em;
+    weight: bold;}}</pre>
+
+  <pre name="" class="fixture" cols="30" rows="10">.funky
+  font:
+    family: fantasy;
+    size: 30em;
+    weight: bold;
+  </pre>
+
+</div>
+
+<div class="property-syntax">
+
+  <pre name="" class="expected" cols="30" rows="10">#main{
+  color: blue;
+  font-size: 0.3em;}</pre>
+
+  <pre name="" class="fixture" cols="30" rows="10">#main
+  :color blue
+  :font-size 0.3em
+  </pre>
+
+</div>
+
 </body>
 </html>
